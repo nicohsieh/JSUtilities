@@ -25,7 +25,7 @@ export function constructQueryString(obj) {
 	const newQueryObj = Object.assign(currentQueryObj, obj)
 	let string = '?'
 	Object.keys(newQueryObj).forEach(name => {
-		const val = newQueryObj[name]
+		const val = encodeURIComponent(newQueryObj[name])
 		string += `${name}=${val}&`
 	})
 	string = string.substring(0, string.length - 1)
